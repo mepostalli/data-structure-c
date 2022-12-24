@@ -12,6 +12,7 @@ queue *root = NULL;
 queue *rear = NULL;
 
 void enqueue(int x){
+//    Queue yapısına eleman ekleme işlemini gerçekleştiren fonksiyon
 
     if(root == NULL){
         root =(queue*) malloc(sizeof(queue));
@@ -29,6 +30,7 @@ void enqueue(int x){
 }
 
 int dequeue(){
+//    Queue yapısından eleman silme işlemini gerçekleştiren fonksiyon
     if(root == NULL){
         printf("Kuyruk Bos\n");
         return -1;
@@ -43,6 +45,7 @@ int dequeue(){
 }
 
 void dispqueue(){
+//    Queue yapısının içeriğini görüntüleme işlemini gerçekleştiren fonksiyon
     queue *iter;
     iter = root;
     printf("QUEUE:\n");
@@ -62,16 +65,21 @@ void dispqueue(){
 int main() {
 
     
-    dequeue();
+    
     enqueue(10);
     enqueue(20);
     enqueue(30);
+    
     dispqueue();
+    
     dequeue();
     dequeue();
+    
     dispqueue();
+    
     enqueue(50);
     enqueue(60);
+    
     dispqueue();
 
     return 0;
