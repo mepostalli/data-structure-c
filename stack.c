@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-// STACK (LinkedList ile)
 struct stack {
     int data;
     struct stack * next;
@@ -13,6 +11,7 @@ typedef struct stack stack;
 stack *p=NULL;
 
 void push(int data){
+//      Stack yapısına eleman ekleme işlemini gerçekleştiren fonksiyon
     if(p==NULL){
         p =(stack*) malloc(sizeof(stack));
         p -> next=NULL;
@@ -25,6 +24,7 @@ void push(int data){
 }
 
 int pop(){
+//      Stack yapısından eleman silme işlemini gerçekleştiren fonksiyon    
     if(p->next==NULL){
         return -1;
     }
@@ -37,6 +37,8 @@ int pop(){
 }
 
 void dispStack(){
+//      Stack yapısının içeriğini görüntüleme işlemini gerçekleştiren fonksiyon
+
     printf("\nStack:\n");
     stack *tmp = p -> next;
     while (tmp != NULL){
@@ -49,15 +51,18 @@ void dispStack(){
 
 int main() {
 
-    // STACK
+    /
     printf("STACK\n---------------------\n");
 
     push(50);
     push(60);
     push(70);
+    
     dispStack();
+    
     pop();
     pop();
+    
     push(40);
     push(90);
     dispStack();
