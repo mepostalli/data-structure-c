@@ -51,7 +51,7 @@ void dispStack(){
 
 int main() {
 
-    /
+    
     printf("STACK\n---------------------\n");
 
     push(50);
