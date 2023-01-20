@@ -4,6 +4,7 @@
 struct stack {
     int data;
     struct stack * next;
+    
 };
 
 typedef struct stack stack;
@@ -37,7 +38,7 @@ int pop(){
 }
 
 void dispStack(){
-//      Stack yapısının içeriğini görüntüleme işlemini gerçekleştiren fonksiyon
+//      Stack yapısının içeriğini görüntüleme işlemini gerçekleştiren fonksiyon.
 
     printf("\nStack:\n");
     stack *tmp = p -> next;
