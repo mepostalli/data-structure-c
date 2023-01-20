@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 #define HASHTAB_SIZE 10
 struct node{
     int val;
     struct node *next;
 };
+
 typedef struct node node;
 
 void addnode(node** head,int value){
+//    collusion olması durumunda linked list yapısına node ekleyen fonksiyon
     node * new_node = malloc(sizeof(node*));
     new_node-> val = value;
     new_node->next = NULL;
@@ -28,6 +29,7 @@ void addnode(node** head,int value){
 }
 
 int hashing(int new_value){
+//    index elde etmemizi sağlayan hash fonksiyonu
     if(new_value < 0){
         new_value = -1;
     }
@@ -35,6 +37,7 @@ int hashing(int new_value){
 }
 
 void inserting_table(node **hashtable,int new_value){
+//    Hash Tablosuna eleman eklememizi saglayan fonksiyon
     int index = hashing(new_value);
 
     if (hashtable[index] == NULL){
@@ -52,7 +55,7 @@ void inserting_table(node **hashtable,int new_value){
 }
 
 void dispHt(node **hashtable){
-
+//  Hash Tablosunu ekrana bastıran fonksiyon.
     printf("\n-- HASH TABLE --\n");
 
     for(int i = 0;i<HASHTAB_SIZE;i++ ){
@@ -73,7 +76,9 @@ void dispHt(node **hashtable){
     }
     printf("-------------\n");
 }
+
 int searching(node **hashtable,int val){
+//    Hash tablosunda istenilen verinin olup olmadığını kontrol eden fonksiyon
     int index = hashing(val);
     node *tmp;
     if(hashtable[index] == NULL){
@@ -104,6 +109,7 @@ int searching(node **hashtable,int val){
 }
 
 void delete(node **hashtable,int val){
+//  Hash Tablosundan veri silme işlemini yapan fonksiyon
     int index = hashing(val);
     node *tmp;
     int control = searching(hashtable,val);
@@ -146,10 +152,8 @@ void delete(node **hashtable,int val){
 }
 
 
-
-
-
 node ** init_table() {
+//    hash tablosunu initialize eden fonksiyon
     node **hashtable = calloc(HASHTAB_SIZE, sizeof(node*));
     return hashtable;
 }
@@ -186,6 +190,5 @@ int main( ){
 
         }
     }
-
     return 0;
 }
